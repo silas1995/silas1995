@@ -19,10 +19,9 @@ import pandas as pd
 
 os.chdir("C:\\Users\\USER\\Documents\\gaw mt kenya\\tei49i")
 os.getcwd()
-#merge all text files into one dataframe
-#define path to text files
+#define path to dat files
 path=r"C:\\Users\\USER\\Documents\\gaw mt kenya\\tei49i"
-path
+
 #identify all text files                         
 all_files=glob.glob(os.path.join("*.dat"))
 all_files
@@ -30,7 +29,6 @@ all_files
 df=pd.concat((pd.read_table(f,delim_whitespace=True) for f in all_files),ignore_index=True)
 df
 df.to_csv(r"C:\Users\USER\Documents\gaw mt kenya\tei49i\mt_Kenya_tei491.csv", index=False)
-
 #select specific columns of interest from the dataframe
 mt_kenya_tei49i_spec=df[["pcdate","pctime","time","date","o3"]]
 mt_kenya_tei49i_spec.to_csv(r"C:\Users\USER\Documents\gaw mt kenya\tei49i\mt_Kenya_spec.csv", index=False)
