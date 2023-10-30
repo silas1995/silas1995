@@ -16,9 +16,9 @@ for file in os.listdir(working_directory):   # get the list of files
 import glob
 import os
 import pandas as pd
-os.getcwd()
 
 os.chdir("C:\\Users\\USER\\Documents\\gaw mt kenya\\tei49i")
+os.getcwd()
 #merge all text files into one dataframe
 #define path to text files
 path=r"C:\\Users\\USER\\Documents\\gaw mt kenya\\tei49i"
@@ -31,8 +31,8 @@ df=pd.concat((pd.read_table(f,delim_whitespace=True) for f in all_files),ignore_
 df
 df.to_csv(r"C:\Users\USER\Documents\gaw mt kenya\tei49i\mt_Kenya_tei491.csv", index=False)
 
-#select specific columns from the dataframe
+#select specific columns of interest from the dataframe
 mt_kenya_tei49i_spec=df[["pcdate","pctime","time","date","o3"]]
 mt_kenya_tei49i_spec.to_csv(r"C:\Users\USER\Documents\gaw mt kenya\tei49i\mt_Kenya_spec.csv", index=False)
 print(mt_kenya_tei49i_spec)
-mt_kenya_tei49i_spec
+
