@@ -34,3 +34,15 @@ mt_kenya_tei49i_spec=df[["pcdate","pctime","time","date","o3"]]
 mt_kenya_tei49i_spec.to_csv(r"C:\Users\USER\Documents\gaw mt kenya\tei49i\mt_Kenya_spec.csv", index=False)
 print(mt_kenya_tei49i_spec)
 
+import os
+import shutil
+ 
+source ="C:\Users\USER\Documents\gaw mt kenya\tei49i"
+destination = "C:\\Users\\USER\\Desktop\\archive"
+ 
+# gather all files and move to the archive folder
+directory_files = os.listdir(source)
+for f in directory_files: # grabs all files
+    src_path=os.path.join(source,f)
+    dst_path=os.path.join(destination,f)
+    shutil.move(src_path,dst_path)
