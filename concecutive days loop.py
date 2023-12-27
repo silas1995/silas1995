@@ -30,7 +30,7 @@ for column in df.columns:
 # Display the result
 print(cumulative_counts_df)
 
-cumulative_counts_df.to_excel("consecutive indices dataframe1.xlsx")
+cumulative_counts_df.to_excel("consecutive tmaxindices.xlsx")
 
 
 
