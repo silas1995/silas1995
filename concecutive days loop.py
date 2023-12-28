@@ -32,7 +32,34 @@ print(cumulative_counts_df)
 
 cumulative_counts_df.to_excel("consecutive tmaxindices.xlsx")
 
+###########################################################
+#############################################
+import pandas as pd
+import os
+import sys
 
+os.chdir("C:\\Users\\USER\\Documents")
+
+# Read the CSV file
+data = pd.read_csv("County gridded tmax.csv", skiprows=[1, 2])
+
+cumulative_counts_df = pd.DataFrame()
+
+# Iterate through columns
+for column in data.columns:
+    # Skip non-numeric columns
+    if column == 'ID':
+        continue
+
+    # Count consecutive occurrences using apply and lambda function
+    cumulative_counts_df[column] = data[column].apply(lambda x: 0 if x <= 30 else 1).groupby(
+        data[column].gt(30).ne(data[column].gt(30).shift()).cumsum()).cumsum()
+
+# Display the result
+print(cumulative_counts_df)
+
+# Save to Excel
+cumulative_counts_df.to_csv("consecutive_tmax_indices.csv", index=False)
 
 
 
